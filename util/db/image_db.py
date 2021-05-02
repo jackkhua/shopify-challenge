@@ -50,8 +50,6 @@ class mock_db:
             }
         ]
         # This can be another db called (image_category_detail) and stores the referrence of the image ids in json format 
-        
-        # self.category_list = ['fruit','item','game','character','weapon','basketball','human','cartoon']
         self.category_db = {
             'fruit': [0, 1],
             'item': [0, 1],
@@ -89,12 +87,4 @@ class mock_db:
     
     
     def home_page(self):
-        # result_images = []
-        # for image in self.db:
-        #     result_images.append((image['image_url'], image['category']))
         return self.db
-
-
-# if __name__ == "__main__":
-    # test = mock_db()
-    # print(test.search('human'))

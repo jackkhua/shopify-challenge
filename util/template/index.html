@@ -46,7 +46,7 @@
         <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
             <h1 class="fw-light">Image Repository</h1>
-            <p class="lead text-muted">Search any image by titles or tags. Example tags can be game, fruit. Example title can be watermelon</p>
+            <p class="lead text-muted">Search any image by titles or tags. You can do multiple tags in a single search (ex. "fruit, game") </p>
             <p>
                 <form action="/search" method="POST" class="d-flex">
                     <input class="form-control me-2" type="text" name="key" placeholder="Input tags or title" aria-label="Search">
@@ -59,7 +59,8 @@
 
     <div class="album py-5 bg-light">
         <div class="container">
-
+        <p class="lead text-muted">Here are all the images in the current repo</p>
+        <p class="lead text-muted">Click on the button with image's name to see the image better and related images</p>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             {% for image in value%}
             <div class="col">
@@ -91,6 +92,6 @@
             <p class="mb-0">Made by Jack Hua, follow on <a href="/https://github.com/jackkhua">github</a></p>
         </div>
     </footer>
-    
+
   </body>
 </html>
