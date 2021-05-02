@@ -17,4 +17,4 @@ Setting up requires python3
     cd util
     flask run
 ```
-You should be able to go to [http://localhost:5000/]
+You should be able to go to [http://localhost:5000/](http://localhost:5000/)
