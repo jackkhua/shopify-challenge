@@ -33,5 +33,10 @@
 ._*
 .Spotlight-V100
 .Trashes
+.venv
 ehthumbs.db
 Thumbs.db
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
