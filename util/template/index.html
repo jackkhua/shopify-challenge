@@ -53,18 +53,32 @@
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </p>
+            <p class="lead text-muted">You can also add image by providing image title, tags and upload the file, then your image will be added to the repository</p>
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+                <p>
+                    <div class="input-group">
+                        <input type="text" name="title" class="form-control" placeholder="Enter image title">
+                        <input type="text" name="tags" class="form-control" placeholder="Enter image tags, seperate by comma">
+                    </div>
+                </p>
+                <p>
+                    <div class="input-group">
+                        <input type="file" class="form-control" name="upload_file">
+                        <button class="btn btn-outline-secondary" type="submit">Add Image</button>
+                    </div>
+                </p>   
+            </form>
         </div>
         </div>
     </section>
 
     <div class="album py-5 bg-light">
         <div class="container">
-        <p class="lead text-muted">Here are all the images in the current repo</p>
         <p class="lead text-muted">Click on the button with image's name to see the image better and related images</p>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             {% for image in value%}
             <div class="col">
-                <div class="card h-100">
+                <div class="card">
                     <img src="{{url_for('static', filename=image['image_url'] )}}" class="card-image">
                     <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">

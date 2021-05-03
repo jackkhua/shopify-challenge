@@ -1,5 +1,7 @@
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for,redirect
 from db.image_db import mock_db
+import os
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__, template_folder='template')
 db_connection = mock_db()
@@ -33,6 +35,18 @@ def search():
 
     return render_template('index.html', value =related_images)
 
+@app.route("/upload", methods = ['POST'])
+def upload():
+    title = request.form.get('title', False)
+    tags = request.form.get('tags', False)
+    if title and tags:
+        new_image = request.files['upload_file']
+        new_image.save(os.path.join(os.getcwd(), 'static', secure_filename(new_image.filename)))
+        print(secure_filename(new_image.filename))
+        db_connection.upload_new_image(title, tags, secure_filename(new_image.filename))
+        return redirect(url_for('index'))
+    else:
+        return 'please enter title and tags'
 
 if __name__ == "__main__":
   app.run()

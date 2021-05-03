@@ -79,6 +79,7 @@ class mock_db:
                         result_images.append(image['id'])
         return result_images
     
+    # gets image metadata from image_id in single id or an array
     def data_from_id(self, image_id):
         if isinstance(image_id, int):
             return self.db[image_id]
@@ -88,3 +89,23 @@ class mock_db:
     
     def home_page(self):
         return self.db
+
+
+    def upload_new_image(self, title, tag, filename):
+        tags = tag.split(',')
+        # gets rid of the empty spaces for consistency
+        for key, value in enumerate(tags):
+            tags[key] = value.strip()
+        image_id = len(self.db)
+        self.db.append({
+            'id': image_id,
+            'title': title,
+            'image_url': filename,
+            'category': tags,
+        })
+        for tag in tags:
+            if tag in self.category_db:
+                self.category_db[tag].append(image_id)
+            else:
+                self.category_db[tag] = [image_id]
+        return
