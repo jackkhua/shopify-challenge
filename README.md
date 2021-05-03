@@ -18,3 +18,5 @@ Setting up requires python3
     flask run
 ```
 You should be able to go to [http://localhost:5000/](http://localhost:5000/)
+
+[Instructions and note](https://github.com/jackkhua/shopify-challenge/blob/main/instruction.md)
