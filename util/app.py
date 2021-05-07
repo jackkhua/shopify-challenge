@@ -12,7 +12,8 @@ def index():
     returned_urls = db_connection.home_page()
     return render_template('index.html', value = returned_urls)
 
-
+# The reason for this being a POST method is that since I didn't implement security layer, this avoid users
+# access images by adding url parameters
 @app.route("/image", methods = ['POST'])
 def display():
     image_id = int(request.form['image_id'])
@@ -23,9 +24,8 @@ def display():
     data_set = (current_image, related_images)
     return render_template('display_image.html', value=data_set)
         
-
-
-
+# For the same reason it would be great to have a security layer since it's an image repository for users, so having it
+# in POST avoid URL parameters access
 @app.route("/search", methods = ['POST'])
 def search():
     key = request.form['key']
